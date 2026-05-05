@@ -822,6 +822,15 @@ class Flask(App):
         :class:`~flask.testing.FlaskCliRunner`. The Flask app object is
         passed as the first argument.
 
+        Example::
+
+            @app.cli.command()
+            def hello():
+                print("Hello, World!")
+
+            runner = app.test_cli_runner()
+            result = runner.invoke(hello)
+
         .. versionadded:: 1.0
         """
         cls = self.test_cli_runner_class
