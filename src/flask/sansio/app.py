@@ -610,6 +610,29 @@ class App(Scaffold):
         provide_automatic_options: bool | None = None,
         **options: t.Any,
     ) -> None:
+        """Add a URL rule for routing requests.
+        
+        The newly added rule will be used for routing requests that match
+        the provided rule. A ``view_func`` can also be provided to associate
+        the rule with a callable that handles requests.
+        
+        :param rule: The URL rule as a string.
+        :param endpoint: The endpoint name for the rule. If not given, it will
+            be inferred from the ``view_func``.
+        :param view_func: A callable that handles requests for the rule.
+        :param provide_automatic_options: If ``True``, automatically add the
+            ``OPTIONS`` method. If ``None`` (default), check the
+            ``view_func.provide_automatic_options`` attribute or the
+            ``PROVIDE_AUTOMATIC_OPTIONS`` config. If ``False``, never add
+            ``OPTIONS`` automatically.
+        :param options: Additional keyword arguments passed to the URL rule.
+        
+        .. versionchanged:: 3.2
+            Added the ``provide_automatic_options`` parameter.
+        
+        .. versionchanged:: 3.1
+            The ``provide_automatic_options`` config key was added.
+        """
         if endpoint is None:
             endpoint = _endpoint_from_view_func(view_func)  # type: ignore
         options["endpoint"] = endpoint
