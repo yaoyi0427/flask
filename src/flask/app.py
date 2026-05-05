@@ -680,6 +680,10 @@ class Flask(App):
             server. See :func:`werkzeug.serving.run_simple` for more
             information.
 
+        Example::
+
+            app.run(debug=True, port=5000)
+
         .. versionchanged:: 1.0
             If installed, python-dotenv will be used to load environment
             variables from :file:`.env` and :file:`.flaskenv` files.
