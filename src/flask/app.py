@@ -472,6 +472,11 @@ class Flask(App):
         :attr:`jinja_options` after this will have no effect. Also adds
         Flask-related globals and filters to the environment.
 
+        Example::
+
+            env = app.create_jinja_environment()
+            template = env.get_template('index.html')
+
         .. versionchanged:: 0.11
            ``Environment.auto_reload`` set in accordance with
            ``TEMPLATES_AUTO_RELOAD`` configuration option.
