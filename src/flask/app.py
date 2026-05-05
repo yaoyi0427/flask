@@ -597,6 +597,12 @@ class Flask(App):
         in the context will not be overridden if a context processor
         decides to return a value with the same key.
 
+        Example::
+
+            @app.context_processor
+            def my_context_processor():
+                return {"name": "Flask"}
+
         :param context: the context as a dictionary that is updated in place
                         to add extra variables.
         """
