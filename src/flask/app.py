@@ -622,6 +622,12 @@ class Flask(App):
         application.  This runs all the registered shell context
         processors.
 
+        Example::
+
+            @app.shell_context_processor
+            def my_context_processor():
+                return {"name": "Flask"}
+
         .. versionadded:: 0.11
         """
         rv = {"app": self, "g": g}
