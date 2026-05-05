@@ -511,6 +511,11 @@ class Flask(App):
         is created at a point where the request context is not yet set
         up so the request is passed explicitly.
 
+        Example::
+
+            adapter = app.create_url_adapter(request)
+            url = adapter.build("index")
+
         .. versionchanged:: 3.1
             If :data:`SERVER_NAME` is set, it does not restrict requests to
             only that domain, for both ``subdomain_matching`` and
